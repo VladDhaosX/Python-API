@@ -14,7 +14,7 @@ def create_conn():
     )
     return conn
 
-@app.route('/api/data', methods=['GET'])
+@app.route('/', methods=['GET'])
 def get_data():
     conn = create_conn()
     cursor = conn.cursor()
