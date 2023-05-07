@@ -7,10 +7,10 @@ app.config["DEBUG"] = True
 def create_conn():
     conn = pyodbc.connect(
         'DRIVER={ODBC Driver 17 for SQL Server};'
-        'SERVER=localhost;'
-        'DATABASE=GECIT;'
-        'UID=sa;'
-        'PWD=Admin2*;'
+        'SERVER=database-2.cwbt7fw41quf.us-east-2.rds.amazonaws.com,1433;'
+        'DATABASE=MoniRail;'
+        'UID=Admin;'
+        'PWD=Va07an08de33;'
     )
     return conn
 
@@ -19,7 +19,7 @@ def get_data():
     conn = create_conn()
     cursor = conn.cursor()
 
-    cursor.execute("SELECT * FROM dbo.Drivers")
+    cursor.execute("SELECT * FROM dbo.Station")
     results = cursor.fetchall()
     column_names = [column[0] for column in cursor.description]
 
